@@ -9,5 +9,9 @@ export class CountriesService {
   
   constructor(private http : HttpClient) { }
 
-  
+
+  getAllCountries () {
+    
+  }
+
 }
