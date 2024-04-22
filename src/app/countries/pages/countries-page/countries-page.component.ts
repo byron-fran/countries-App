@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { environment } from '../../../../environments/environment.development';
 import { CountriesService } from '../../services/countries.service';
 import { Country } from '../../interfaces/CountryResponse';
@@ -10,12 +10,19 @@ import { Country } from '../../interfaces/CountryResponse';
 })
 export class CountriesPageComponent implements OnInit {
 
+
+  public termSearch : string = '';
+
   constructor(private countriesServices : CountriesService){}
   public countries : Country [] = [];
 
   ngOnInit(): void {
     this.countriesServices.getAllCountries()
     .subscribe(countries => this.countries = countries)
-  }
+  };
 
+  onSearch(term : string){
+    this.countriesServices.searchCountryByName(term)
+    .subscribe(countries => this.countries = countries)
+  }
 }

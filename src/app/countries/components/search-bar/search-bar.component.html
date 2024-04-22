@@ -1,0 +1,11 @@
+<div class="mx-auto flex justify-center my-10 ">
+    <input 
+        class="md:w-[30%] p-2 mx-auto focus:outline-gray-200" 
+        type="text" 
+        placeholder="search a country"
+        [value]="initialValue"
+        #textInput
+        (keyup)="onKeyPress(textInput.value)"
+        
+        >
+</div>

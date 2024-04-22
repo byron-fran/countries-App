@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, map, pipe } from 'rxjs';
+import { Observable, catchError, map, of, pipe, tap } from 'rxjs';
 import { Country } from '../interfaces/CountryResponse';
 import { environment } from '../../../environments/environment.development';
 
@@ -9,15 +9,29 @@ import { environment } from '../../../environments/environment.development';
 })
 export class CountriesService {
 
-  
   constructor(private http : HttpClient) { }
 
-
-  getAllCountries () : Observable<Country[]> {
+  public getAllCountries () : Observable<Country[]> {
     return this.http.get<Country[]>(`${environment.api_url}/all`)
     .pipe(
       map( countries => countries)
     )
+  };
+  private getCountriesRequest(url: string): Observable<Country[]> {
+    return this.http.get<Country[]>(url)
+      .pipe(
+        catchError(() => of([])),
+        
+      )
+
+  };
+
+  public searchCountryByName (name : string) : Observable<Country[]>  {
+    return this.getCountriesRequest(`${environment.api_url}/name/${name}`)
+      .pipe(
+        tap(countries => countries)
+      )
   }
+  
 
 }
