@@ -10,19 +10,27 @@ import { Country } from '../../interfaces/CountryResponse';
 })
 export class CountriesPageComponent implements OnInit {
 
-
   public termSearch : string = '';
 
   constructor(private countriesServices : CountriesService){}
   public countries : Country [] = [];
 
   ngOnInit(): void {
-    this.countriesServices.getAllCountries()
-    .subscribe(countries => this.countries = countries)
+    this.Allcountries
   };
+
+  get Allcountries () {
+    return this.countriesServices.getAllCountries()
+    .subscribe(countries => this.countries = countries)
+  }
 
   onSearch(term : string){
     this.countriesServices.searchCountryByName(term)
     .subscribe(countries => this.countries = countries)
   }
+  onResetCountries () {
+    this.Allcountries
+
+  };
+  
 }

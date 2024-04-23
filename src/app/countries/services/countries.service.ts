@@ -31,6 +31,17 @@ export class CountriesService {
       .pipe(
         tap(countries => countries)
       )
+  };
+
+
+  public getCountryByCode(code : string) : Observable<Country | undefined> {
+    return this.http.get<Country[]>(`${environment.api_url}/alpha/${code}`)
+      .pipe(
+        map(country => country.length > 0 ? country[0] : undefined),
+        catchError(() => of(undefined))
+    
+      )
+
   }
   
 

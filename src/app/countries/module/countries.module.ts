@@ -7,16 +7,18 @@ import { CardContryComponent } from '../components/card-contry/card-contry.compo
 import { CountriesPageComponent } from '../pages/countries-page/countries-page.component';
 import { ImageModule } from 'primeng/image';
 import { SearchBarComponent } from '../components/search-bar/search-bar.component';
-
+import { CountryDetailPageComponent } from '../pages/country-detail-page/country-detail-page.component';
+import { ChipModule } from 'primeng/chip';
 
 @NgModule({
-  declarations: [CardContryComponent, CountriesPageComponent,SearchBarComponent],
+  declarations: [CardContryComponent, CountriesPageComponent,SearchBarComponent, CountryDetailPageComponent],
   imports: [
     CommonModule,
     CountriesRouting,
     CardModule,
-    ImageModule
-    
+    ImageModule,
+    ChipModule
+  
   ]
 })
 export class CountriesModule { }

@@ -32,7 +32,9 @@ export class SearchBarComponent implements OnInit, OnDestroy {
     this.debouncer.next(value)
     this.initialValue = value
   };
-
+  onResetCountries () : void {
+    
+  }
   ngOnInit(): void {
     this.debouncerSubscription = this.debouncer
       .pipe(
@@ -45,4 +47,6 @@ export class SearchBarComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.debouncerSubscription?.unsubscribe()
   }
+
+
 }
