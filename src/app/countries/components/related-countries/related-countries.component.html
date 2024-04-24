@@ -1,11 +1,11 @@
-<p-carousel class="my-10" [value]="countriesByRegion" [numVisible]="6" [numScroll]="6">
+<p-carousel class="my-10" [value]="countriesByRegion" [numVisible]="6" [numScroll]="6" [responsiveOptions]="responsiveOptions" >
     <ng-template  pTemplate="header">
         <p class="mt-10 text-center font-bold">Related countries</p>
     </ng-template>
     <ng-template let-country pTemplate="item">
         <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
 
-            <img [routerLink]="['/country/', country.cca3] " class="object-contain w-[200px] h-[200px]" [src]="country.flags.png" [alt]="country.name.common">
+            <img [routerLink]="['/country/', country.cca3] " class="object-contain mx-auto w-[200px] h-[200px]" [src]="country.flags.png" [alt]="country.name.common">
         </div>
     </ng-template>
 </p-carousel>

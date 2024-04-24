@@ -15,6 +15,7 @@ export class RelatedCountriesComponent implements OnInit {
   @Input()
   public country? : Country
 
+  public responsiveOptions: any[] | undefined;
   public countriesByRegion : Country [] = [];
   private  countriesServices = inject(CountriesService);
 
@@ -27,6 +28,23 @@ export class RelatedCountriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.searchCountriesByRegion()
+    this.responsiveOptions = [
+      {
+          breakpoint: '1199px',
+          numVisible: 6,
+          numScroll: 6
+      },
+      {
+          breakpoint: '991px',
+          numVisible: 4,
+          numScroll: 4
+      },
+      {
+          breakpoint: '767px',
+          numVisible: 2,
+          numScroll: 2
+      }
+  ];
   }
 
 }
