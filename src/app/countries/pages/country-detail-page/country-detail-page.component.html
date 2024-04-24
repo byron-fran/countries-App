@@ -2,35 +2,38 @@
     <h1>cargando...</h1>
 </ng-template>
 
-<div class="flex justify-center mt-10" *ngIf="country; else loading">
-    <div class="grid md:grid-cols-2 gap-10">
-        <img class="mx-auto md:w-[450px] " [src]="country.flags.png" alt="{{ country.name.common}}">
-        <div class="">
-            <h1 class="font-bold md:text-2xl">{{ country.name.common}}</h1>
-            <h2 class="font-bold "> {{ country.capital}}</h2>
-            <h2 class="font-bold ">Population 
-                <span class="font-normal">
-                <li class="pi pi-users mx-2"></li>{{country.population|number}}
-                </span>
-            </h2>
-            <h2 class="font-bold ">Area
-                <span class="font-normal">
-                {{country.area|number}} km
-                </span>
-            </h2>
-            <div>
-                <h2 class="font-bold my-2">Translations</h2>
-                <div class="flex flex-wrap gap-2">
-                    <p-chip> {{ country.translations['ara'].common }}</p-chip>
-                    <p-chip> {{ country.translations['fra'].common }}</p-chip>
-                    <p-chip> {{ country.translations['ita'].common }}</p-chip>
-                    <p-chip> {{ country.translations['spa'].common }}</p-chip>
-                    <p-chip> {{ country.translations['rus'].common }}</p-chip>
-                    <p-chip> {{ country.translations['deu'].common }}</p-chip>
-                    <p-chip> {{ country.translations['zho'].common }}</p-chip>
-                    <p-chip> {{ country.translations['kor'].common }}</p-chip>
+<div class="mx-auto w-[95%]" *ngIf="country; else loading">
+    <div class="flex justify-center mt-10">
+        <div class="grid md:grid-cols-2 gap-10">
+            <img class="mx-auto md:w-[450px] " [src]="country.flags.png" alt="{{ country.name.common}}">
+            <div class="">
+                <h1 class="font-bold md:text-2xl">{{ country.name.common}}</h1>
+                <h2 class="font-bold "> {{ country.capital}}</h2>
+                <h2 class="font-bold ">Population
+                    <span class="font-normal">
+                        <li class="pi pi-users mx-2"></li>{{country.population|number}}
+                    </span>
+                </h2>
+                <h2 class="font-bold ">Area
+                    <span class="font-normal">
+                        {{country.area|number}} km
+                    </span>
+                </h2>
+                <div>
+                    <h2 class="font-bold my-2">Translations</h2>
+                    <div class="flex flex-wrap gap-2">
+                        <p-chip> {{ country.translations['ara'].common }}</p-chip>
+                        <p-chip> {{ country.translations['fra'].common }}</p-chip>
+                        <p-chip> {{ country.translations['ita'].common }}</p-chip>
+                        <p-chip> {{ country.translations['spa'].common }}</p-chip>
+                        <p-chip> {{ country.translations['rus'].common }}</p-chip>
+                        <p-chip> {{ country.translations['deu'].common }}</p-chip>
+                        <p-chip> {{ country.translations['zho'].common }}</p-chip>
+                        <p-chip> {{ country.translations['kor'].common }}</p-chip>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <related-countries [region]="country.region" [country]="country"/>
 </div>

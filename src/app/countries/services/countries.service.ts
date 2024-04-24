@@ -17,6 +17,7 @@ export class CountriesService {
       map( countries => countries)
     )
   };
+
   private getCountriesRequest(url: string): Observable<Country[]> {
     return this.http.get<Country[]>(url)
       .pipe(
@@ -41,8 +42,13 @@ export class CountriesService {
         catchError(() => of(undefined))
     
       )
+  };
 
-  }
-  
+  public getCountriesByRegion (region : string) : Observable<Country[]> {
+    return this.getCountriesRequest(`${environment.api_url}/region/${region}`)
+    .pipe(
+      tap(countries => countries)
+    )
+  };
 
 }

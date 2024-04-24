@@ -29,6 +29,6 @@ export class CountryDetailPageComponent {
         if (!country) return this.route.navigateByUrl('/countries')
         this.country = country
         return
-      })
+      })  
   }
 }
