@@ -15,13 +15,3 @@ export class CardContryComponent  {
 
 
 }
-
-/*
-
-  totalItems = 100
-  itemsPerPage = 15
-  totalPages = totalItems / itemsPerPage 7
-
-
-
-*/

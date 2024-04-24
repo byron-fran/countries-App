@@ -1,6 +1,5 @@
-
 <div class="flex justify-center gap-4 my-10">
-    <search-bar (onDebounce)="onSearch($event)"/>
+    <search-bar (onDebounce)="onSearch($event)" />
     <button (click)="onResetCountries()" class=" border border-gray-300 p-2 rounded-md block h-auto">
         <i class="pi pi-sync text-gray-300 "></i>
     </button>
@@ -14,9 +13,20 @@
 
 <div *ngIf="countries.length > 0; else noResults" class="w-[90%] md:w-[80%] mx-auto">
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <p-card *ngFor="let country of countries">
-            <card-contry [country]="country"/>
+        <p-card *ngFor="let country of countries | paginate: {itemsPerPage : 12, currentPage : p}">
+            <card-contry [country]="country" />
         </p-card>
+
     </div>
+    <!--List buttons of pagination   -->
+    <pagination-controls     
+        class="flex w-full my-10 justify-center" 
+        (pageChange)="p = $event"
+        previousLabel="previus"
+        nextLabel="next"
+        [routerLink]="['/countries']"
+        [queryParams]="{page : p}"
+    />
    
+
 </div>

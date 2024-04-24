@@ -11,6 +11,8 @@ import { CountryDetailPageComponent } from '../pages/country-detail-page/country
 import { ChipModule } from 'primeng/chip';
 import { RelatedCountriesComponent } from '../components/related-countries/related-countries.component';
 import { CarouselModule } from 'primeng/carousel';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 @NgModule({
   declarations: [
 
@@ -27,7 +29,8 @@ import { CarouselModule } from 'primeng/carousel';
     CardModule,
     ImageModule,
     ChipModule,
-    CarouselModule
+    CarouselModule,
+    NgxPaginationModule
 
   ]
 })
