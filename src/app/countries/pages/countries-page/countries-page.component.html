@@ -1,8 +1,11 @@
-<div class="flex justify-center gap-4 my-10">
-    <search-bar (onDebounce)="onSearch($event)" />
-    <button (click)="onResetCountries()" class=" border border-gray-300 p-2 rounded-md block h-auto">
-        <i class="pi pi-sync text-gray-300 "></i>
-    </button>
+<div class="flex justify-between mx-auto w-[90%] gap-4 my-10">
+    <app-favorites/>
+    <div class="flex gap-4 items-center">
+        <search-bar (onDebounce)="onSearch($event)" />
+        <button (click)="onResetCountries()" class=" border border-gray-300 p-2 rounded-md block h-auto">
+            <i class="pi pi-sync text-gray-300 "></i>
+        </button>
+    </div>
 </div>
 
 <ng-template #noResults>
@@ -19,14 +22,7 @@
 
     </div>
     <!--List buttons of pagination   -->
-    <pagination-controls     
-        class="flex w-full my-10 justify-center" 
-        (pageChange)="p = $event"
-        previousLabel="previus"
-        nextLabel="next"
-        [routerLink]="['/countries']"
-        [queryParams]="{page : p}"
-    />
-   
+    <pagination-controls class="flex w-full my-10 justify-center" (pageChange)="p = $event" previousLabel="previus"
+        nextLabel="next" [routerLink]="['/countries']" [queryParams]="{page : p}" />
 
 </div>

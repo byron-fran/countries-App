@@ -1,0 +1,16 @@
+<p-sidebar [(visible)]="sidebarVisible">
+    @if(!favoritesServices.Allfavorites.length){<p class="text-center">No Favorites</p>}
+    @else {<p class="text-center">Favorites</p>}
+    @for (favorite of favoritesServices.Allfavorites; track $index) {
+    <div class="flex my-4 items-start justify-between">
+        <p-card>
+            <img class="w-[100px] h-auto max-h-[100px] object-contain" src="{{ favorite.flags.png}}" alt="{{ favorite.name.common}} ">
+        </p-card>
+        <p-button (onClick)="onDelete(favorite.cca3)">
+            <i class="pi pi-times-circle"></i>
+        </p-button>
+    </div>
+    }
+</p-sidebar>
+<p-button (click)="sidebarVisible = true"
+    class="text-pink-600 border border-pink-600 p-2 rounded-md">favorites</p-button>
